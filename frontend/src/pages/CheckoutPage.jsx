@@ -4,6 +4,7 @@ import { X } from 'lucide-react'
 import { useCart } from '../context/CartContext'
 import { useAuth } from '../context/AuthContext'
 import { api } from '../api/client'
+import { imgUrl } from '../utils/img'
 
 export default function CheckoutPage() {
   const { items, total, clearCart, removeItem } = useCart()
@@ -207,7 +208,7 @@ export default function CheckoutPage() {
               <div key={`${item.id}-${item.size}`} className="flex gap-4 items-start px-6 py-5">
                 <div className="w-16 h-20 flex-shrink-0 bg-nude-100 overflow-hidden rounded-lg">
                   {item.images?.[0]
-                    ? <img src={item.images[0]} alt={item.name} className="w-full h-full object-cover" />
+                    ? <img src={imgUrl(item.images[0])} alt={item.name} className="w-full h-full object-cover" />
                     : <div className="w-full h-full bg-nude-100" />
                   }
                 </div>

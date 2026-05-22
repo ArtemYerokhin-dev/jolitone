@@ -3,8 +3,9 @@ import { X } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import { api } from '../../api/client'
+import { imgUrl } from '../../utils/img'
 
-const HEADER_IMG = '/images/auth-header.jpg'
+const HEADER_IMG = imgUrl('/images/auth-header.jpg')
 
 export default function AccountModal({ onClose }) {
   const { user, login, register, logout } = useAuth()

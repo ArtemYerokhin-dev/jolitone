@@ -8,6 +8,7 @@ import { useFavorites } from '../context/FavoritesContext'
 import ProductCard from '../components/ui/ProductCard'
 import SizeGuideModal from '../components/ui/SizeGuideModal'
 import { api } from '../api/client'
+import { imgUrl } from '../utils/img'
 
 function Accordion({ title, children, defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen)
@@ -167,7 +168,7 @@ export default function ProductPage() {
                 {images[imgIndex] ? (
                   <img
                     key={imgIndex}
-                    src={images[imgIndex]}
+                    src={imgUrl(images[imgIndex])}
                     alt={product.name}
                     className="w-full h-full object-cover product-img-fade"
                   />
@@ -215,7 +216,7 @@ export default function ProductPage() {
                           : 'hover:opacity-75'
                       }`}
                     >
-                      <img src={src} alt="" className="w-full h-full object-cover" />
+                      <img src={imgUrl(src)} alt="" className="w-full h-full object-cover" />
                     </button>
                   ))}
                 </div>
@@ -496,7 +497,7 @@ export default function ProductPage() {
           >
             <img
               key={imgIndex}
-              src={images[imgIndex]}
+              src={imgUrl(images[imgIndex])}
               alt={product.name}
               draggable={false}
               className="w-full h-full object-contain transition-transform duration-150"
@@ -513,7 +514,7 @@ export default function ProductPage() {
                   onClick={() => setImgIndex(i)}
                   className={`flex-shrink-0 w-16 h-20 overflow-hidden transition-opacity ${i === imgIndex ? 'opacity-100' : 'opacity-50'}`}
                 >
-                  <img src={src} alt="" className="w-full h-full object-cover" />
+                  <img src={imgUrl(src)} alt="" className="w-full h-full object-cover" />
                 </button>
               ))}
             </div>

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { api } from '../api/client'
 import { PRODUCTS } from '../data/products'
+import { imgUrl } from '../utils/img'
 
 // ── helpers ───────────────────────────────────────────────────────────────────
 function fmtMoney(n) { return Number(n).toLocaleString('uk-UA') + ' ₴' }
@@ -176,7 +177,7 @@ function OrdersTab() {
                     <div key={item.id} className="flex items-center gap-3">
                       <div className="w-10 h-[52px] bg-nude-100 rounded-lg overflow-hidden flex-shrink-0">
                         {PRODUCTS.find(p => p.id === item.product_id)?.images?.[0] && (
-                          <img src={PRODUCTS.find(p => p.id === item.product_id).images[0]} className="w-full h-full object-cover" />
+                          <img src={imgUrl(PRODUCTS.find(p => p.id === item.product_id).images[0])} className="w-full h-full object-cover" />
                         )}
                       </div>
                       <div className="flex-1 min-w-0">
@@ -373,7 +374,7 @@ function StockTab() {
                 return (
                   <div key={product.id} className={`grid grid-cols-[auto_1fr_auto_auto_auto] items-center gap-0 px-5 py-3 ${st.bg}`}>
                     <div className="w-12 h-[56px] bg-nude-100 rounded-lg overflow-hidden flex-shrink-0 mr-4">
-                      <img src={product.images?.[0]} alt="" className="w-full h-full object-cover" />
+                      <img src={imgUrl(product.images?.[0])} alt="" className="w-full h-full object-cover" />
                     </div>
                     <div className="min-w-0 pr-4">
                       <p className="font-sans text-[15px] font-medium text-brand-black leading-snug">{product.name}</p>

@@ -3,10 +3,11 @@ import { PRODUCTS } from '../data/products'
 import { CATEGORIES } from '../data/categories'
 import ProductCard from '../components/ui/ProductCard'
 import Reveal from '../components/ui/Reveal'
+import { imgUrl } from '../utils/img'
 
-const HERO_VIDEO    = '/hero.mp4'
+const HERO_VIDEO    = imgUrl('/hero.mp4')
 const HERO_POSTER   = ''
-const EDITORIAL_IMG = '/images/editorial.jpg'
+const EDITORIAL_IMG = imgUrl('/images/editorial.jpg')
 
 const TOP_CATEGORIES = ['sukni', 'kostiumy', 'sorochky', 'verkhnii-odiah']
 const featuredCategories = CATEGORIES.filter(c => TOP_CATEGORIES.includes(c.slug))
@@ -49,7 +50,7 @@ function CategoryGrid({ categories }) {
           <div className="relative overflow-hidden bg-nude-100 aspect-[3/4]">
             {cat.image ? (
               <img
-                src={cat.image}
+                src={imgUrl(cat.image)}
                 alt={cat.label}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />

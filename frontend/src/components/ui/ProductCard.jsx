@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Heart } from 'lucide-react'
 import { useFavorites } from '../../context/FavoritesContext'
+import { imgUrl } from '../../utils/img'
 
 export default function ProductCard({ product }) {
   const { id, name, price, images, colors } = product
@@ -60,7 +61,7 @@ export default function ProductCard({ product }) {
           {currentImg ? (
             <img
               key={`${imgIndex}-${colorIndex}`}
-              src={currentImg}
+              src={imgUrl(currentImg)}
               alt={name}
               className="absolute inset-0 w-full h-full object-cover product-img-fade"
             />

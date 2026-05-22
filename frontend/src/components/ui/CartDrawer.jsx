@@ -1,6 +1,7 @@
 import { X, Minus, Plus, Trash2 } from 'lucide-react'
 import { useCart } from '../../context/CartContext'
 import { useNavigate } from 'react-router-dom'
+import { imgUrl } from '../../utils/img'
 
 export default function CartDrawer({ open, onClose }) {
   const { items, removeItem, updateQty, total, count } = useCart()
@@ -41,7 +42,7 @@ export default function CartDrawer({ open, onClose }) {
               <div key={`${item.id}-${item.size}`} className="flex gap-4">
                 <div className="w-20 h-24 bg-white border border-nude-200 flex-shrink-0 overflow-hidden">
                   {item.images?.[0] ? (
-                    <img src={item.images[0]} alt={item.name} className="w-full h-full object-cover" />
+                    <img src={imgUrl(item.images[0])} alt={item.name} className="w-full h-full object-cover" />
                   ) : (
                     <div className="w-full h-full bg-nude-100" />
                   )}

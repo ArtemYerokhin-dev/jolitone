@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { api } from '../api/client'
 import { PRODUCTS } from '../data/products'
+import { imgUrl } from '../utils/img'
 
 const STATUS_META = {
   new:       { text: 'Прийнято',      color: 'bg-nude-100 text-brand-black/60'  },
@@ -99,7 +100,7 @@ export default function MyOrdersPage() {
                         {/* Thumbnail */}
                         <div className="w-16 h-20 flex-shrink-0 bg-nude-100 overflow-hidden rounded-xl">
                           {image
-                            ? <img src={image} alt={item.product_name} className="w-full h-full object-cover" />
+                            ? <img src={imgUrl(image)} alt={item.product_name} className="w-full h-full object-cover" />
                             : <div className="w-full h-full bg-nude-100" />
                           }
                         </div>
